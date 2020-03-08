@@ -7,7 +7,7 @@ const Waiter = () => (
     <h2>Waiter view</h2>
     <div>
       <Link to={`${process.env.PUBLIC_URL}/waiter/order/new`}>New Order</Link>
-      <Link to={`${process.env.PUBLIC_URL}/waiter/order/123456`}>Edit Order</Link>
+      <Link to={`${process.env.PUBLIC_URL}/waiter/order/w123456`}>Edit Order</Link>
     </div>
   </div>
 );

@@ -9,11 +9,11 @@ const Tables = () => (
       <Link to={`${process.env.PUBLIC_URL}/tables/booking/new`}>
         New Booking
       </Link>
-      <Link to={`${process.env.PUBLIC_URL}/tables/booking/123456`}>
+      <Link to={`${process.env.PUBLIC_URL}/tables/booking/r123456`}>
         Edit Booking
       </Link>
       <Link to={`${process.env.PUBLIC_URL}/tables/events/new`}>New Event</Link>
-      <Link to={`${process.env.PUBLIC_URL}/tables/events/123456`}>Edit Event</Link>
+      <Link to={`${process.env.PUBLIC_URL}/tables/events/ev123456`}>Edit Event</Link>
     </div>
   </div>
 );
