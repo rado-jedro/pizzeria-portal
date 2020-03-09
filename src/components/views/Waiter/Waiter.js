@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styles from './Waiter.scss';
+
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -77,6 +79,13 @@ class Waiter extends React.Component {
     } else {
       return (
         <Paper className={styles.component}>
+          <h2>Waiter view</h2>
+          <Button component={Link} className={styles.button} color='primary' variant='outlined'
+            to={`${process.env.PUBLIC_URL}/waiter/order/new`}>New Order
+          </Button>
+          <Button component={Link} className={styles.button} color='primary' variant='outlined'
+            to={`${process.env.PUBLIC_URL}/waiter/orders/w123456`}>Edit Order
+          </Button>
           <Table>
             <TableHead>
               <TableRow>

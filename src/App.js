@@ -77,7 +77,7 @@ function App() {
                 />
                 <Route
                   exact
-                  path={`${process.env.PUBLIC_URL}/waiter/order/:id`}
+                  path={`${process.env.PUBLIC_URL}/waiter/orders/:id`}
                   component={WaiterOrderId}
                 />
                 <Route
