@@ -19,6 +19,7 @@ class Waiter extends React.Component {
       error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     }),
     tables: PropTypes.any,
+    updateTable: PropTypes.func,
   }
 
   componentDidMount(){
@@ -26,34 +27,59 @@ class Waiter extends React.Component {
     fetchTables();
   }
 
-  renderActions(status){
+  waiterOrderChange(tableId, status){
+    this.props.updateTable(tableId, status);
+  }
+
+  renderActions(status, tableId){
     switch (status) {
       case 'free':
         return (
           <>
-            <Button>thinking</Button>
-            <Button>new order</Button>
+            <Button component={Link} className={styles.button} color="primary" variant="contained"
+              onClick={() => { this.waiterOrderChange(tableId, 'thinking'); }}>
+          thinking
+            </Button>
+            <Button component={Link} className={styles.button} color="primary" variant="contained"
+              onClick={() => { this.waiterOrderChange(tableId, 'new order'); }}>
+          new order
+            </Button>
           </>
         );
       case 'thinking':
         return (
-          <Button>new order</Button>
+          <Button component={Link} className={styles.button} color="primary" variant="contained"
+            onClick={() => { this.waiterOrderChange(tableId, 'new order'); }}>
+                new order
+          </Button>
         );
       case 'ordered':
         return (
-          <Button>prepared</Button>
+          <Button component={Link} className={styles.button} color="primary" variant="contained"
+            onClick={() => { this.waiterOrderChange(tableId, 'prepared'); }}>
+                prepared
+          </Button>
         );
       case 'prepared':
         return (
-          <Button>delivered</Button>
+          <Button component={Link} className={styles.button} color="primary" variant="contained"
+            onClick={() => { this.waiterOrderChange(tableId, 'delivered'); }}>
+                delivered
+          </Button>
         );
       case 'delivered':
         return (
-          <Button>paid</Button>
+          <Button component={Link} className={styles.button} color="primary" variant="contained"
+            onClick={() => { this.waiterOrderChange(tableId, 'paid'); }}>
+                paid
+          </Button>
         );
       case 'paid':
         return (
-          <Button>free</Button>
+          <Button component={Link} className={styles.button} color="primary" variant="contained"
+            onClick={() => { this.waiterOrderChange(tableId, 'free'); }}>
+                free
+          </Button>
         );
       default:
         return null;
@@ -112,7 +138,7 @@ class Waiter extends React.Component {
                     )}
                   </TableCell>
                   <TableCell>
-                    {this.renderActions(row.status)}
+                    {this.renderActions(row.status, row.id)}
                   </TableCell>
                 </TableRow>
               ))}
